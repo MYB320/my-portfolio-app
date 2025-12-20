@@ -69,7 +69,7 @@ const HeroSection = () => {
             software engineer
           </p>
           <p className="text-sm md:text-base tracking-wide font-light px-4">
-            Passionate about building scalable & user-friendly web applications
+            Passionate about building scalable & user-friendly applications
           </p>
         </div>
       </div>

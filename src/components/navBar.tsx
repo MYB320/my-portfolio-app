@@ -62,19 +62,15 @@ const NavBar = () => {
             isScrolled ? "opacity-100" : "opacity-0",
           )}
         >
-          <Button variant={"outline"}>
-            <DownloadIcon /> Download ruseme
+          <Button variant={"outline"} className="cursor-pointer">
+            <DownloadIcon /> Download resume
           </Button>
         </div>
         <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
           <Magnetic actionArea="self">
             <DropdownMenuTrigger asChild>
-              <Button size="icon">
-                {isOpen ? (
-                  <XIcon className="h-5 w-5 " />
-                ) : (
-                  <MenuIcon className="h-5 w-5" />
-                )}
+              <Button size="icon" className="cursor-pointer">
+                {isOpen ? <XIcon /> : <MenuIcon />}
               </Button>
             </DropdownMenuTrigger>
           </Magnetic>
