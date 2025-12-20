@@ -20,7 +20,7 @@ export default function LoadingSection({
           duration: 0.6,
           ease: "easeOut",
         }}
-        className="h-screen flex flex-col md:flex-row items-center md:items-end justify-between overflow-hidden"
+        className="h-screen w-dvw flex flex-col md:flex-row items-center md:items-end justify-between overflow-hidden"
       >
         <div className="flex flex-1 flex-col gap-4 md:gap-8 text-xl md:text-2xl p-4 md:p-8 items-center md:items-start w-full">
           <h1 className="text-center md:text-left">Loading...</h1>
