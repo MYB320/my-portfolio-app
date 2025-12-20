@@ -1,7 +1,30 @@
 import { Spotlight } from "@/components/motion-primitives/spotlight";
 import { ArrowDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const HeroSection = () => {
+  const greetings = [
+    "Hello,",
+    "Bonjour,",
+    "مرحبا,",
+    "Hola,",
+    "Ciao,",
+    "こんにちは,",
+    "Привет,",
+    "你好,",
+  ];
+
+  const [currentGreeting, setCurrentGreeting] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentGreeting((prev) => (prev + 1) % greetings.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative h-screen w-full flex flex-col justify-center items-center">
       <Spotlight
@@ -12,6 +35,23 @@ const HeroSection = () => {
           duration: 0.1,
         }}
       />
+      <div className="absolute top-20 md:top-28 lg:top-32 left-4 md:left-16 lg:left-32 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.h1
+            key={currentGreeting}
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+            className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/30"
+          >
+            {greetings[currentGreeting]}
+          </motion.h1>
+        </AnimatePresence>
+      </div>
       <div className="px-4 w-full max-w-2xl">
         <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto">
           <img
