@@ -10,9 +10,9 @@ interface GridBackgroundProps {
 
 const GridBackground: React.FC<GridBackgroundProps> = ({
   gridSize = 40,
-  lineColor = "var(--border)",
+  lineColor = "hsl(var(--border))",
   lineThickness = 1,
-  backgroundColor = "var(--background)",
+  backgroundColor = "hsl(var(--background))",
   className = "",
 }) => {
   return (
@@ -41,6 +41,8 @@ const GridBackground: React.FC<GridBackgroundProps> = ({
         <rect width="100%" height="100%" fill={backgroundColor} />
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
+      {/* Bottom blur gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 };
