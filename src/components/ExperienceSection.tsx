@@ -34,7 +34,10 @@ const experiences = [
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="scroll-mt-20 mt-24">
+    <section
+      id="experience"
+      className="scroll-mt-20 mt-24 mx-auto container py-6 md:py-8 lg:py-12 px-4 md:px-6 lg:px-8 max-w-6xl"
+    >
       <h2 className="text-2xl font-bold tracking-tight mb-8">Experience</h2>
 
       <div className="space-y-8">
