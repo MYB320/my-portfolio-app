@@ -3,6 +3,7 @@ import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import GridBackground from "./gridBackground";
+import myb from "@/assets/myb.jpg";
 
 const HeroSection = () => {
   const greetings = [
@@ -61,7 +62,7 @@ const HeroSection = () => {
       </div>
       <div className="px-4 w-full max-w-2xl">
         <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto border-2 border-border">
-          <img src="/myb.jpg" alt="Logo" className="object-cover size-full" />
+          <img src={myb} alt="Logo" className="object-cover size-full" />
           <div className="absolute inset-0 dark:bg-black/40" />
         </div>
         <div className="text-center pt-4">
