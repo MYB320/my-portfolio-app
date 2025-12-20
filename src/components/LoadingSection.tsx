@@ -20,7 +20,7 @@ export default function LoadingSection({
           duration: 0.6,
           ease: "easeOut",
         }}
-        className="h-screen w-dvw flex flex-col md:flex-row items-center md:items-end justify-between overflow-hidden"
+        className="h-screen flex flex-col md:flex-row items-center md:items-end justify-between overflow-hidden"
       >
         <div className="flex flex-1 flex-col gap-4 md:gap-8 text-xl md:text-2xl p-4 md:p-8 items-center md:items-start w-full">
           <h1 className="text-center md:text-left">Loading...</h1>
@@ -28,7 +28,7 @@ export default function LoadingSection({
             <SlidingNumber value={value} />%
           </div>
         </div>
-        <div className="flex items-end gap-2 md:gap-4 h-2/3 md:h-full w-full justify-center md:justify-end">
+        <div className="flex items-end gap-2 md:gap-4 px-4 md:pr-4 h-1/3 md:h-full w-full md:w-auto justify-center md:justify-end pb-8 md:pb-0">
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}

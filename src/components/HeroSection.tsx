@@ -2,6 +2,7 @@ import { Spotlight } from "@/components/motion-primitives/spotlight";
 import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import GridBackground from "./gridBackground";
 
 const HeroSection = () => {
   const greetings = [
@@ -26,7 +27,13 @@ const HeroSection = () => {
   }, [greetings.length]);
 
   return (
-    <section className="relative h-screen w-full flex flex-col justify-center items-center bg-muted">
+    <section className="relative h-screen w-full flex flex-col justify-center items-center">
+      <GridBackground
+        gridSize={40}
+        lineThickness={0.4}
+        lineColor="var(--muted-foreground)"
+        backgroundColor="var(--muted)"
+      />
       <Spotlight
         className="bg-primary blur-2xl"
         size={96}
@@ -40,35 +47,31 @@ const HeroSection = () => {
           <motion.h1
             key={currentGreeting}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0  }}
+            animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{
               duration: 0.6,
               ease: "easeInOut",
             }}
-            className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/30"
+            className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/50"
           >
             {greetings[currentGreeting]}
           </motion.h1>
         </AnimatePresence>
       </div>
       <div className="px-4 w-full max-w-2xl">
-        <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto">
-          <img
-            src="/myb.jpg"
-            alt="Logo"
-            className="object-cover size-full grayscale-50"
-          />
-          <div className="absolute inset-0 dark:bg-black/30" />
+        <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto border-2 border-border">
+          <img src="/myb.jpg" alt="Logo" className="object-cover size-full" />
+          <div className="absolute inset-0 dark:bg-black/40" />
         </div>
         <div className="text-center pt-4">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-black tracking-tight">
-            Mohamed Yasser Boureghida
+            Mohamed Yasser <span className="uppercase">Boureghida</span>
           </h1>
           <p className="text-base md:text-lg font-semibold">
             software engineer
           </p>
-          <p className="text-sm md:text-base tracking-wide font-light px-4">
+          <p className="text-sm md:text-base  font-light pt-2">
             Passionate about building scalable & user-friendly applications
           </p>
         </div>

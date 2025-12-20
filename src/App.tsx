@@ -6,6 +6,7 @@ import { animateValue } from "./lib/constents";
 import welcomeSound from "@/assets/welcome.mp3";
 import { ExperienceSection } from "./components/ExperienceSection";
 import HeroSection from "./components/HeroSection";
+import { AboutSection } from "./components/AboutSection";
 
 export default function App() {
   const [value, setValue] = useState(0);
@@ -29,6 +30,7 @@ export default function App() {
       <LoadingSection isloading={isLoading} value={value}>
         <NavBar />
         <HeroSection />
+        <AboutSection />
         <ExperienceSection />
       </LoadingSection>
     </ThemeProvider>
