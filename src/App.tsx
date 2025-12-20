@@ -11,8 +11,8 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (value >= 100) {
-      const audio = new Audio(welcomeSound); // or '/welcome.wav'
+    if (value === 100) {
+      const audio = new Audio(welcomeSound);
       audio.play().catch((err) => console.log("Audio play failed:", err));
       setTimeout(() => {
         setIsLoading(false);
