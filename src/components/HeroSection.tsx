@@ -39,11 +39,11 @@ const HeroSection = () => {
         <AnimatePresence mode="wait">
           <motion.h1
             key={currentGreeting}
-            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0  }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{
-              duration: 0.5,
+              duration: 0.6,
               ease: "easeInOut",
             }}
             className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/30"
@@ -73,7 +73,7 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex justify-center">
+      <div className="absolute bottom-16 md:bottom-8 left-1/2 -translate-x-1/2 flex justify-center">
         <div className="animate-bounce bg-card rounded-full border border-accent p-2">
           <ArrowDown className="size-4 md:size-5" />
         </div>
