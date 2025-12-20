@@ -31,7 +31,9 @@ export default function App() {
         <NavBar />
         <HeroSection />
         <AboutSection />
-        <ExperienceSection />
+        <div className="bg-accent">
+          <ExperienceSection />
+        </div>
       </LoadingSection>
     </ThemeProvider>
   );

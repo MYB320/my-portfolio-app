@@ -7,14 +7,16 @@ export function AboutSection() {
       <h2 className="text-2xl font-bold tracking-tight mb-8">About</h2>
       <div className="space-y-4">
         <p className="text-lg leading-relaxed text-foreground">
-          {`I'm a software engineer passionate about creating accessible, pixel-perfect interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability.`}
+          I'm passionate about creating accessible, pixel-perfect interfaces
+          that blend thoughtful design with robust engineering. My favorite work
+          lies at the intersection of design and development, creating
+          experiences that not only look great but are meticulously built for
+          performance and usability.
         </p>
 
         <p className="text-base leading-relaxed text-muted-foreground">
-          Currently, {`I'm`} a{" "}
-          <span className="text-foreground font-medium">
-            Senior Software Engineer
-          </span>{" "}
+          Currently, I'm a
+          <span className="text-primary font-medium"> Software Engineer</span>{" "}
           specializing in full-stack development with React, Next.js,
           TypeScript, and Node.js. I contribute to building scalable web
           applications that serve millions of users worldwide.

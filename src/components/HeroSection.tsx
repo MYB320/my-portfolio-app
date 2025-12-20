@@ -31,8 +31,8 @@ const HeroSection = () => {
       <GridBackground
         gridSize={40}
         lineThickness={0.4}
-        lineColor="var(--muted-foreground)"
-        backgroundColor="var(--muted)"
+        lineColor="var(--accent-foreground)"
+        backgroundColor="var(--accent)"
       />
       <Spotlight
         className="bg-primary blur-2xl"
