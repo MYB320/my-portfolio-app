@@ -32,12 +32,12 @@ const HeroSection = () => {
       <GridBackground
         gridSize={40}
         lineThickness={0.4}
-        lineColor="var(--accent-foreground)"
-        backgroundColor="var(--accent)"
+        lineColor="var(--muted-foreground)"
+        backgroundColor="var(--muted)"
       />
       <Spotlight
         className="bg-primary blur-2xl"
-        size={96}
+        size={128}
         springOptions={{
           bounce: 0.3,
           duration: 0.1,
@@ -60,10 +60,10 @@ const HeroSection = () => {
           </motion.h1>
         </AnimatePresence>
       </div>
-      <div className="px-4 w-full max-w-2xl">
+      <div className="px-4 w-full max-w-2xl z-10">
         <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto border-2 border-border">
           <img src={myb} alt="Logo" className="object-cover size-full" />
-          <div className="absolute inset-0 dark:bg-black/40" />
+          <div className="absolute inset-0 dark:bg-black/25" />
         </div>
         <div className="text-center pt-4">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-black tracking-tight">

@@ -44,7 +44,7 @@ export function SkillsSection() {
   ];
 
   return (
-    <div className="bg-accent">
+    <div className="bg-muted">
       <section
         id="skills"
         className="scroll-mt-20 mt-24 mx-auto container py-6 md:py-8 lg:py-12 px-4 md:px-6 lg:px-8 max-w-6xl"
@@ -69,7 +69,7 @@ export function SkillsSection() {
                   <Badge
                     key={skill}
                     variant="outline"
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300"
                   >
                     {skill}
                   </Badge>

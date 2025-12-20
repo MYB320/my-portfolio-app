@@ -79,15 +79,16 @@ const NavBar = () => {
               Menu
             </DropdownMenuLabel>
             <DropdownMenuItem className="text-sm md:text-md">
-              <HomeIcon className="h-4 w-4 md:h-5 md:w-5" />
+              <HomeIcon className="size-4" />
               <h1 className="w-[80%] text-center">Home</h1>
+              <div className="size-2 rounded-full bg-primary" />
             </DropdownMenuItem>
             <DropdownMenuItem className="text-sm md:text-md">
-              <LayoutGridIcon className="h-4 w-4 md:h-5 md:w-5" />
+              <LayoutGridIcon className="size-4" />
               <h1 className="w-[80%] text-center">Projects</h1>
             </DropdownMenuItem>
             <DropdownMenuItem className="text-sm md:text-md">
-              <MailPlusIcon className="h-4 w-4 md:h-5 md:w-5" />
+              <MailPlusIcon className="size-4" />
               <h1 className="w-[80%] text-center">Contact</h1>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -103,13 +104,13 @@ const NavBar = () => {
             </DropdownMenuLabel>
             <div className="flex flex-row gap-1 items-center justify-center p-2">
               <DropdownMenuItem className="p-2">
-                <GithubIcon className="h-4 w-4 md:h-5 md:w-5" />
+                <GithubIcon className="size-4" />
               </DropdownMenuItem>
               <DropdownMenuItem className="p-2">
-                <InstagramIcon className="h-4 w-4 md:h-5 md:w-5" />
+                <InstagramIcon className="size-4" />
               </DropdownMenuItem>
               <DropdownMenuItem className="p-2">
-                <LinkedinIcon className="h-4 w-4 md:h-5 md:w-5" />
+                <LinkedinIcon className="size-4" />
               </DropdownMenuItem>
             </div>
           </DropdownMenuContent>
