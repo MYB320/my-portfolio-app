@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen w-full">
+    <section className="relative h-screen w-full flex flex-col justify-center items-center">
       <Spotlight
         className="bg-primary blur-2xl"
         size={96}
@@ -12,7 +12,7 @@ const HeroSection = () => {
           duration: 0.1,
         }}
       />
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 w-full max-w-2xl">
+      <div className="px-4 w-full max-w-2xl">
         <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto">
           <img
             src="/myb.jpg"
