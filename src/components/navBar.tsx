@@ -19,13 +19,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Magnetic } from "./motion-primitives/magnetic";
 import ThemeSwitcher from "./themeSwitcher";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="w-full px-4 md:px-8 lg:px-16 py-4 md:py-6 lg:py-8 flex flex-row items-center">
-      <div className="flex flex-1">
+    <section className="fixed top-0 left-0 right-0 z-50 w-full px-4 md:px-8 lg:px-12 py-4 md:py-6 flex flex-row items-center transition-all duration-300">
+      <div
+        className={`flex flex-1 transition-opacity duration-300 ease-in-out ${isScrolled ? "opacity-0" : "opacity-100"}`}
+      >
         <h1 className="font-bold text-xl md:text-2xl tracking-wide">
           {"<"}
           <span className="text-primary">/</span>
@@ -37,18 +50,14 @@ const NavBar = () => {
           <DropdownMenuTrigger asChild>
             <Button size="icon" className="h-9 w-9 md:h-10 md:w-10">
               {isOpen ? (
-                <XIcon className="h-5 w-5" />
+                <XIcon className="h-5 w-5 " />
               ) : (
                 <MenuIcon className="h-5 w-5" />
               )}
             </Button>
           </DropdownMenuTrigger>
         </Magnetic>
-        <DropdownMenuContent
-          className="w-48 md:w-56"
-          side="right"
-          sideOffset={8}
-        >
+        <DropdownMenuContent className="w-48 md:w-56" sideOffset={8}>
           <DropdownMenuLabel className="text-center text-xl md:text-2xl font-semibold pb-1">
             Menu
           </DropdownMenuLabel>
