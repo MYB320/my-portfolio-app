@@ -23,10 +23,10 @@ const HeroSection = () => {
     }, 2500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [greetings.length]);
 
   return (
-    <section className="relative h-screen w-full flex flex-col justify-center items-center">
+    <section className="relative h-screen w-full flex flex-col justify-center items-center bg-muted">
       <Spotlight
         className="bg-primary blur-2xl"
         size={96}
