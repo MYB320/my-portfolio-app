@@ -1,7 +1,7 @@
 export const animateValue = (
   setValue: (value: number) => void,
   startValue: number,
-  duration: number = 2000,
+  duration: number = 1000,
 ): void => {
   const startTime = Date.now();
 
