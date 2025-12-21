@@ -47,7 +47,7 @@ export function SkillsSection() {
     <div className="bg-muted">
       <section
         id="skills"
-        className="scroll-mt-20 mt-24 mx-auto container py-6 md:py-8 lg:py-12 px-4 md:px-6 lg:px-8 max-w-6xl"
+        className="mx-auto container py-12 md:py-16 lg:py-24 max-w-6xl"
       >
         <h2 className="text-2xl text-accent-foreground font-bold tracking-tight mb-8">
           Skills
@@ -69,7 +69,7 @@ export function SkillsSection() {
                   <Badge
                     key={skill}
                     variant="outline"
-                    className="text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300"
+                    className="text-muted-foreground hover:text-secondary-foreground hover:scale-110 hover:bg-secondary transition-all duration-300"
                   >
                     {skill}
                   </Badge>
@@ -79,6 +79,7 @@ export function SkillsSection() {
           ))}
         </div>
       </section>
+      <div className="relative bottom-0 left-0 right-0 h-64 bg-linear-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 }
