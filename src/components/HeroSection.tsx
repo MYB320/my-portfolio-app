@@ -28,13 +28,8 @@ const HeroSection = () => {
   }, [greetings.length]);
 
   return (
-    <section className="relative h-screen w-full flex flex-col justify-center items-center">
-      <GridBackground
-        gridSize={40}
-        lineThickness={0.4}
-        lineColor="var(--muted-foreground)"
-        backgroundColor="var(--muted)"
-      />
+    <div className="relative min-h-dvh w-full flex flex-col justify-center items-center">
+      <GridBackground />
       <Spotlight
         className="bg-primary blur-2xl"
         size={128}
@@ -54,35 +49,40 @@ const HeroSection = () => {
               duration: 0.6,
               ease: "easeInOut",
             }}
-            className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/50"
+            className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/75"
           >
             {greetings[currentGreeting]}
           </motion.h1>
         </AnimatePresence>
       </div>
-      <div className="px-4 w-full max-w-2xl z-10">
-        <div className="relative size-24 md:size-32 rounded-full overflow-hidden mx-auto border-2 border-border">
-          <img src={myb} alt="Logo" className="object-cover size-full" />
-          <div className="absolute inset-0 dark:bg-black/25" />
-        </div>
-        <div className="text-center pt-4">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-black tracking-tight">
-            Mohamed Yasser <span className="uppercase">Boureghida</span>
+      <div className="max-w-6xl z-10">
+        <div className="max-w-fit mx-auto space-y-2 pb-8">
+          <p className="text-lg md:text-xl text-secondary">my name is</p>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
+            Mohamed Yasser Boureghida
           </h1>
-          <p className="text-base md:text-lg font-semibold">
-            software engineer
-          </p>
-          <p className="text-sm md:text-base  font-light pt-2">
-            Passionate about building scalable & user-friendly applications
-          </p>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <div className="relative size-20 md:size-24 rounded-full overflow-hidden border-4 border-primary">
+            <img src={myb} alt="Logo" className="object-cover size-full" />
+            <div className="absolute inset-0 dark:bg-black/35" />
+          </div>
+          <div className="">
+            <h2 className="text-xl md:text-2xl font-semibold">
+              Software Engineer
+            </h2>
+            <p className="text-sm md:text-base text-muted-foreground">
+              Passionate about building scalable & user-friendly applications
+            </p>
+          </div>
         </div>
       </div>
-      <div className="absolute bottom-16 md:bottom-8 left-1/2 -translate-x-1/2 flex justify-center">
+      <div className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 flex justify-center">
         <div className="animate-bounce bg-card rounded-full border border-accent p-2">
           <ArrowDown className="size-4 md:size-5" />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
