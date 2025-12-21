@@ -23,12 +23,11 @@ const HeroSection = () => {
     const interval = setInterval(() => {
       setCurrentGreeting((prev) => (prev + 1) % greetings.length);
     }, 2500);
-
     return () => clearInterval(interval);
   }, [greetings.length]);
 
   return (
-    <div className="relative min-h-dvh w-full flex flex-col justify-center items-center">
+    <div className="relative min-h-dvh w-full flex flex-col justify-center items-center px-4 sm:px-6 md:px-8">
       <GridBackground />
       <Spotlight
         className="bg-primary blur-2xl"
@@ -38,7 +37,9 @@ const HeroSection = () => {
           duration: 0.1,
         }}
       />
-      <div className="absolute top-20 md:top-28 lg:top-32 left-4 md:left-16 lg:left-32 overflow-hidden">
+
+      {/* Greeting Animation - Better positioned for mobile */}
+      <div className="absolute top-16 md:top-28 lg:top-32 left-4 md:left-16 lg:left-32 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.h1
             key={currentGreeting}
@@ -49,37 +50,47 @@ const HeroSection = () => {
               duration: 0.6,
               ease: "easeInOut",
             }}
-            className="text-2xl md:text-3xl lg:text-4xl font-black text-foreground/75"
+            className="text-xl md:text-3xl lg:text-4xl font-black text-foreground/75"
           >
             {greetings[currentGreeting]}
           </motion.h1>
         </AnimatePresence>
       </div>
-      <div className="max-w-6xl z-10">
-        <div className="max-w-fit mx-auto space-y-2 pb-8">
-          <p className="text-lg md:text-xl text-secondary">my name is</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
+
+      {/* Main Content - Centered and responsive */}
+      <div className="w-full max-w-6xl mx-auto z-10">
+        <div className="mx-auto max-w-fit space-y-2 pb-6 md:text-left">
+          <p className="text-sm md:text-lg text-secondary">my name is</p>
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold leading-tight">
             Mohamed Yasser Boureghida
           </h1>
         </div>
-        <div className="flex items-center justify-center gap-4">
-          <div className="relative size-20 md:size-24 rounded-full overflow-hidden border-4 border-primary">
-            <img src={myb} alt="Logo" className="object-cover size-full" />
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+          <div className="relative size-16 md:size-24 rounded-full overflow-hidden border-4 border-primary">
+            <img
+              src={myb}
+              alt="Mohamed Yasser Boureghida"
+              className="object-cover size-full"
+            />
             <div className="absolute inset-0 dark:bg-black/35" />
           </div>
-          <div className="">
-            <h2 className="text-xl md:text-2xl font-semibold">
+
+          <div className="text-center md:text-left space-y-1">
+            <h2 className="text-lg md:text-2xl font-semibold">
               Software Engineer
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-muted-foreground max-w-md">
               Passionate about building scalable & user-friendly applications
             </p>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 flex justify-center">
-        <div className="animate-bounce bg-card rounded-full border border-accent p-2">
-          <ArrowDown className="size-4 md:size-5" />
+
+      {/* Scroll Indicator - Always visible and properly positioned */}
+      <div className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 flex justify-center">
+        <div className="animate-bounce bg-card rounded-full border border-accent p-2 sm:p-2.5">
+          <ArrowDown className="size-4 md:size-6" />
         </div>
       </div>
     </div>

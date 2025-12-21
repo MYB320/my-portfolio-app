@@ -36,7 +36,7 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="mx-auto container py-12 md:py-16 lg:py-24 max-w-6xl"
+      className="mx-auto container py-12 md:py-16 lg:py-24 px-4 md:px-6 lg:px-8 max-w-6xl"
     >
       <h2 className="text-2xl text-accent-foreground font-bold tracking-tight mb-8">
         Experience
