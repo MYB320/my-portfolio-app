@@ -28,7 +28,7 @@ export default function LoadingSection({
             <SlidingNumber value={value} />%
           </div>
         </div>
-        <div className="flex items-end gap-2 md:gap-4 px-4 md:pr-4 h-1/3 md:h-full w-full md:w-auto justify-center md:justify-end pb-8 md:pb-0">
+        <div className="flex items-end gap-2 md:gap-4 px-4 md:pr-4 h-2/3 md:h-full w-full md:w-auto justify-center md:justify-end pb-8 md:pb-0">
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
