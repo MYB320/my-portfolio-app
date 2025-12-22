@@ -84,7 +84,7 @@ const NavBar = () => {
             <NavLink to={"/"}>
               {({ isActive }) => (
                 <DropdownMenuItem className="text-sm md:text-md">
-                  <MailPlusIcon className="size-4" />
+                  <HomeIcon className="size-4" />
                   <h1 className="w-[80%] text-center">Home</h1>
                   {isActive && (
                     <div className="size-2 rounded-full bg-primary" />
@@ -95,7 +95,7 @@ const NavBar = () => {
             <NavLink to={"/projects"}>
               {({ isActive }) => (
                 <DropdownMenuItem className="text-sm md:text-md">
-                  <MailPlusIcon className="size-4" />
+                  <LayoutGridIcon className="size-4" />
                   <h1 className="w-[80%] text-center">Projects</h1>
                   {isActive && (
                     <div className="size-2 rounded-full bg-primary" />
@@ -126,14 +126,20 @@ const NavBar = () => {
               Socials
             </DropdownMenuLabel>
             <div className="flex flex-row gap-1 items-center justify-center p-2">
-              <DropdownMenuItem className="p-2">
-                <GithubIcon className="size-4" />
+              <DropdownMenuItem className="p-2" asChild>
+                <a href="https://github.com/MYB320">
+                  <GithubIcon className="size-4" />
+                </a>
               </DropdownMenuItem>
-              <DropdownMenuItem className="p-2">
-                <InstagramIcon className="size-4" />
+              <DropdownMenuItem className="p-2" asChild>
+                <a href="https://instagram.com/myb320">
+                  <InstagramIcon className="size-4" />
+                </a>
               </DropdownMenuItem>
-              <DropdownMenuItem className="p-2">
-                <LinkedinIcon className="size-4" />
+              <DropdownMenuItem className="p-2" asChild>
+                <a href="https://inkedin.com/in/myb20">
+                  <LinkedinIcon className="size-4" />
+                </a>
               </DropdownMenuItem>
             </div>
           </DropdownMenuContent>
