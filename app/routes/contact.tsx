@@ -48,7 +48,7 @@ export default function Contact({}: Route.ComponentProps) {
 
   return (
     <section className="mx-auto container py-12 md:py-16 lg:py-24 px-4 md:px-6 lg:px-8 max-w-7xl">
-      <div className="pb-8 md:pb-12">
+      <div className="py-8 md:pb-12">
         <h2 className="text-2xl font-bold tracking-tight mb-2">Get In Touch</h2>
         <p className="text-muted-foreground text-base md:text-lg">
           Have a project in mind or want to collaborate? I'd love to hear from
