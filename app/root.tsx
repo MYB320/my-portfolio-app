@@ -13,6 +13,7 @@ import "./app.css";
 import { ThemeProvider } from "./components/theme-provider";
 import NavBar from "~/components/navBar";
 import LoadingSection from "~/components/LoadingSection";
+import { Toaster } from "~/components/ui/sonner";
 
 import { useEffect, useState } from "react";
 import { animateValue } from "~/lib/constents";
@@ -55,6 +56,7 @@ export default function App() {
       <LoadingSection isloading={isLoading} value={value}>
         <NavBar />
         <Outlet />
+        <Toaster />
       </LoadingSection>
     </ThemeProvider>
   );
