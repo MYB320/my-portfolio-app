@@ -40,7 +40,7 @@ const NavBar = () => {
   return (
     <section
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full px-4 md:px-8 lg:px-12 py-4 md:py-6 flex flex-row items-center transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 w-full mb-4 px-4 md:px-8 lg:px-12 py-4 md:py-6 flex flex-row items-center transition-all duration-300",
         isScrolled ? "bg-background" : "bg-transparent",
       )}
     >
