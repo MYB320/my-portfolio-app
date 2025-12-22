@@ -82,12 +82,12 @@ export function ContactInfoItem({
           >
             {copied ? (
               <>
-                <CheckIcon className="size-5 text-secondary" />
+                <CheckIcon className="text-secondary" />
                 <span className="text-secondary">Copied</span>
               </>
             ) : (
               <>
-                <CopyIcon className="size-5" />
+                <CopyIcon />
                 Copy
               </>
             )}

@@ -4,31 +4,38 @@ import { Badge } from "~/components/ui/badge";
 
 const experiences = [
   {
-    period: "2024 — Present",
-    title: "Senior Software Engineer",
-    company: "TechCorp",
-    companyUrl: "https://techcorp.com",
-    description:
-      "Build and maintain critical frontend infrastructure and UI components for a platform serving millions of users. Work closely with cross-functional teams to implement best practices in web accessibility and performance optimization.",
-    technologies: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+    period: "Nov 2022 — Oct",
+    title: "IT Services",
+    company: "Owner",
+    companyUrl: "",
+    description: "Office for IT services in my home town.",
+    technologies: ["Ms Office", "Ia", "Next.js", "Jora"],
   },
   {
-    period: "2022 — 2024",
-    title: "Full Stack Developer",
-    company: "Innovation Labs",
-    companyUrl: "https://innovationlabs.com",
+    period: "Feb 2022 — Dec 2022",
+    title: "Full Stack Web Developer",
+    company: "35mm.pro",
+    companyUrl: "https://35mm.pro",
     description:
-      "Developed and shipped multiple features for web applications using modern JavaScript frameworks. Collaborated with designers and product managers to deliver polished user experiences.",
-    technologies: ["JavaScript", "React", "Node.js", "PostgreSQL"],
+      "Planned website development, converting mock-ups into usable web presence with HTML, CSS, and JavaScript coding. Provided front-end website development using ReactJS and content management system as back-end with Strapi.",
+    technologies: ["JavaScript", "React", "strapi", "PostgreSQL"],
   },
   {
-    period: "2020 — 2022",
+    period: "Oct 2021 — Jan 2022",
     title: "Frontend Developer",
-    company: "Digital Studio",
-    companyUrl: "https://digitalstudio.com",
+    company: "DzBuyInfo Store",
+    companyUrl: "",
     description:
-      "Created responsive websites and interactive web applications for diverse clients. Focused on clean code, performance optimization, and modern CSS techniques.",
-    technologies: ["HTML", "CSS", "JavaScript", "Vue.js"],
+      "Created responsive websites and interactive web applications using WordPress and mysql for database.",
+    technologies: ["HTML", "CSS", "WordPress", "Mysql"],
+  },
+  {
+    period: "Dec 2019 — Apr 2020",
+    title: "Software Developer (Intership)",
+    company: "BM Cork SARL",
+    companyUrl: "",
+    description: "Provided inventory management Software developed.",
+    technologies: ["Java", "JavaFx", "Mysql"],
   },
 ];
 
