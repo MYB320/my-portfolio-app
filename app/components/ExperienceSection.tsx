@@ -4,7 +4,7 @@ import { Badge } from "~/components/ui/badge";
 
 const experiences = [
   {
-    period: "Nov 2022 — Oct",
+    period: "Nov 2022 — Oct 2024",
     title: "IT Services",
     company: "Owner",
     companyUrl: "#",
@@ -66,7 +66,6 @@ export function ExperienceSection() {
                   </h3>
                   <a
                     href={exp.companyUrl}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-secondary hover:text-secondary/80 transition-colors"
                   >
