@@ -135,7 +135,8 @@ export default function Contact({}: Route.ComponentProps) {
           <ContactInfoItem
             type="adress"
             title="Location Address"
-            content="Collo, Skikda, DZ"
+            content="Cheikh Mohamed Ave. Collo, Skikda, Algeria"
+            isAction
           />
         </div>
       </div>

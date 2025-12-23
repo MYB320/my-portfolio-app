@@ -36,11 +36,11 @@ export default function LoadingSection({
               key={i}
               className="w-10 md:w-14 rounded-t-lg bg-primary"
               animate={{
-                height: value > 60 ? ["30%", "100%", "10%"] : "30%",
+                height: value > 70 ? ["30%", "100%", "10%"] : "30%",
               }}
               transition={{
                 duration: value > 90 ? 2 : 0.6,
-                repeat: value > 60 ? Infinity : 0,
+                repeat: value > 70 ? Infinity : 0,
                 repeatType: "mirror",
                 delay: i * 0.1,
                 ease: "easeInOut",
