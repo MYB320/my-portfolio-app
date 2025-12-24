@@ -3,7 +3,7 @@ export function AboutSection() {
     <div>
       <section
         id="about"
-        className="mx-auto container py-12 md:py-16 lg:py-24 px-4 md:px-6 lg:px-8 max-w-7xl"
+        className="mx-auto container py-16 md:py-22 lg:py-32 px-4 md:px-6 lg:px-8 max-w-7xl"
       >
         <h2 className="text-2xl font-bold tracking-tight mb-8">About</h2>
         <div className="space-y-4">
@@ -31,7 +31,7 @@ export function AboutSection() {
           </p>
         </div>
       </section>
-      <div className="relative bottom-0 left-0 right-0 h-64 bg-linear-to-t from-muted to-transparent pointer-events-none" />
+      <div className="relative bottom-0 left-0 right-0 h-16 bg-linear-to-t from-muted to-transparent pointer-events-none" />
     </div>
   );
 }

@@ -5,17 +5,27 @@ export function SkillsSection() {
   const skillCategories = [
     {
       title: "Languages",
-      skills: ["JavaScript", "TypeScript", "Python", "C & C++", "Java", "Rust"],
+      skills: [
+        "JavaScript",
+        "TypeScript",
+        "HTML/CSS",
+        "Python",
+        "C/C++",
+        "Java",
+        "Rust",
+      ],
     },
     {
       title: "Frontend",
       skills: [
         "React",
+        "React Native",
         "Next.js",
         "Vue.js",
         "Tailwind CSS",
-        "HTML/CSS",
-        "React Native",
+        "svelte",
+        "astro",
+        "expo",
       ],
     },
     {
@@ -23,7 +33,8 @@ export function SkillsSection() {
       skills: [
         "Node.js",
         "Bun js",
-        "Express & Nest.js",
+        "Express js",
+        "Nest.js",
         "PostgreSQL",
         "MongoDB",
         "Redis",
@@ -32,11 +43,13 @@ export function SkillsSection() {
     {
       title: "Tools & DevOps",
       skills: [
+        "Linux",
         "Git",
         "Docker",
-        "Linux",
+        "Arduino",
         "CI/CD",
         "Kubernetes",
+        "cloudflare",
         "netlify",
         "AWS",
       ],
@@ -47,7 +60,7 @@ export function SkillsSection() {
     <div className="bg-muted">
       <section
         id="skills"
-        className="mx-auto container py-12 md:py-16 lg:py-24 px-4 md:px-6 lg:px-8 max-w-7xl"
+        className="mx-auto container py-16 md:py-22 lg:py-32 px-4 md:px-6 lg:px-8 max-w-7xl"
       >
         <h2 className="text-2xl text-accent-foreground font-bold tracking-tight mb-8">
           Skills
@@ -57,16 +70,20 @@ export function SkillsSection() {
           {skillCategories.map((category) => (
             <Card
               key={category.title}
-              className="hover:border-secondary group transition-colors duration-300"
+              className="group transition-colors duration-300"
             >
               <CardHeader>
-                <CardTitle className="group-hover:text-secondary transition-colors duration-300">
+                <CardTitle className="group-hover:text-primary group-focus:text-primary group-active:text-primary transition-colors duration-300">
                   {category.title}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <Badge key={skill} variant="outline" className="text-sm">
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="active:border-transparent active:bg-secondary active:text-secondary-foreground group-hover:border-transparent group-hover:bg-secondary group-hover:text-secondary-foreground group-active:border-transparent group-active:bg-secondary group-active:text-secondary-foreground transition-colors duration-200 text-sm cursor-default"
+                  >
                     {skill}
                   </Badge>
                 ))}
@@ -75,7 +92,7 @@ export function SkillsSection() {
           ))}
         </div>
       </section>
-      <div className="relative bottom-0 left-0 right-0 h-64 bg-linear-to-t from-background to-transparent pointer-events-none" />
+      <div className="relative bottom-0 left-0 right-0 h-16 bg-linear-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 }

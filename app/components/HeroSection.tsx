@@ -38,7 +38,6 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Greeting Animation - Better positioned for mobile */}
       <div className="absolute top-16 md:top-28 lg:top-32 left-4 md:left-16 lg:left-32 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.h1
@@ -57,11 +56,10 @@ const HeroSection = () => {
         </AnimatePresence>
       </div>
 
-      {/* Main Content - Centered and responsive */}
       <div className="w-full max-w-6xl mx-auto z-10">
         <div className="mx-auto max-w-fit pb-6 md:text-left">
           <p className="text-sm md:text-lg text-secondary">my name is</p>
-          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-xl md:text-4xl lg:text-6xl font-bold leading-tight">
             Mohamed Yasser Boureghida
           </h1>
         </div>
@@ -87,7 +85,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator - Always visible and properly positioned */}
       <div className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 flex justify-center">
         <div className="animate-bounce bg-card rounded-full border border-accent p-2 sm:p-2.5">
           <ArrowDown className="size-4 md:size-6" />
