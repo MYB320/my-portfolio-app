@@ -3,6 +3,8 @@ import { ExperienceSection } from "~/components/ExperienceSection";
 import HeroSection from "~/components/HeroSection";
 import { AboutSection } from "~/components/AboutSection";
 import { SkillsSection } from "~/components/skillsSection";
+import { ProjectsSection } from "~/components/ProjectsSection";
+import { FooterSection } from "~/components/FooterSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,11 +15,13 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home({}: Route.ComponentProps) {
   return (
-    <section>
+    <>
       <HeroSection />
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
-    </section>
+      <ProjectsSection />
+      <FooterSection />
+    </>
   );
 }

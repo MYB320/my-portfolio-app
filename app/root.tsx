@@ -15,9 +15,6 @@ import NavBar from "~/components/navBar";
 import LoadingSection from "~/components/LoadingSection";
 import { Toaster } from "~/components/ui/sonner";
 
-import { useEffect, useState } from "react";
-import { animateValue } from "~/lib/constents";
-
 export const links: Route.LinksFunction = () => [];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -39,21 +36,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [value, setValue] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (value === 100) {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }
-
-    animateValue(setValue, value);
-  }, [value]);
   return (
     <ThemeProvider defaultTheme="system">
-      <LoadingSection isloading={isLoading} value={value}>
+      <LoadingSection>
         <NavBar />
         <Outlet />
         <Toaster />
