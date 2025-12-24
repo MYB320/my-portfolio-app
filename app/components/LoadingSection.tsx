@@ -1,16 +1,26 @@
+import { useEffect, useState } from "react";
+import { animateValue } from "~/lib/constents";
 import { motion } from "motion/react";
 import { SlidingNumber } from "~/components/ui/sliding-number";
 
 export default function LoadingSection({
-  value,
-  isloading,
   children,
 }: {
-  value: number;
-  isloading: boolean;
   children: React.ReactNode;
 }) {
-  if (isloading) {
+  const [value, setValue] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (value === 100) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    }
+
+    animateValue(setValue, value);
+  }, [value]);
+  if (isLoading) {
     return (
       <motion.div
         animate={{
@@ -20,7 +30,7 @@ export default function LoadingSection({
           duration: 0.6,
           ease: "easeOut",
         }}
-        className="h-screen flex flex-col md:flex-row items-center md:items-end justify-between overflow-hidden"
+        className="h-dvh flex flex-col md:flex-row items-center md:items-end justify-between overflow-hidden"
       >
         {value > 0 && (
           <div className="flex flex-1 flex-col gap-4 text-xl md:text-2xl p-4 items-center md:items-start w-full">
