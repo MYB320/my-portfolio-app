@@ -15,17 +15,17 @@ type ProjectCardProps = {
   title: string;
   tech: string[];
   imageSrc: string;
-  urllink: string;
+  slug: string;
 };
 
 export const ProjectCard = ({
   title,
   tech,
   imageSrc,
-  urllink,
+  slug,
 }: ProjectCardProps) => {
   return (
-    <Link to={urllink}>
+    <Link to={`/projects/${slug}`}>
       <Card className="cursor-pointer w-full aspect-video p-0 overflow-hidden group relative">
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"

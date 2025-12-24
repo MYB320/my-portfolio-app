@@ -1,4 +1,6 @@
 import type { Route } from "./+types/home";
+import { db } from "~/db";
+import { projects } from "~/db/schema";
 import { ExperienceSection } from "~/components/ExperienceSection";
 import HeroSection from "~/components/HeroSection";
 import { AboutSection } from "~/components/AboutSection";
@@ -11,6 +13,13 @@ export function meta({}: Route.MetaArgs) {
     { title: "Myb Portfolio" },
     { name: "description", content: "Welcome Mohamed Yasser Portfolio" },
   ];
+}
+export async function loader({}: Route.LoaderArgs) {
+  const projectsPromise = await db.select().from(projects).limit(3);
+
+  return {
+    projects: projectsPromise,
+  };
 }
 
 export default function Home({}: Route.ComponentProps) {

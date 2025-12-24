@@ -1,10 +1,13 @@
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { Button } from "./ui/button";
 import { ArrowRightFromLineIcon } from "lucide-react";
 import { ProjectCard } from "./projectCard";
-import { ProjectCardSkeleton } from "./ProjectCardSkeleton";
+
+import type { Project } from "~/db/schema";
 
 export function ProjectsSection() {
+  const { projects } = useLoaderData<{ projects: Project[] }>();
+
   return (
     <div className="bg-muted">
       <section
@@ -22,9 +25,21 @@ export function ProjectsSection() {
           </Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[...Array(3)].map((_, index) => (
-            <ProjectCardSkeleton />
-          ))}
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                tech={project.technologies}
+                imageSrc={project.thumbnailUrl}
+                slug={project.slug}
+              />
+            ))
+          ) : (
+            <p className="col-span-3 text-center text-muted-foreground">
+              No projects found.
+            </p>
+          )}
         </div>
       </section>
       <div className="relative bottom-0 left-0 right-0 h-16 bg-linear-to-t from-background to-transparent pointer-events-none" />
