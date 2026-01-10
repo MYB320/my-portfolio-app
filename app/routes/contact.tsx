@@ -178,7 +178,6 @@ export default function Contact({}: Route.ComponentProps) {
             type="adress"
             title="Location Address"
             content="Cheikh Mohamed Ave. Collo, Skikda, Algeria"
-            isAction
           />
         </div>
       </div>
