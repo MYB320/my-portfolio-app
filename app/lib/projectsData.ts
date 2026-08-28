@@ -22,6 +22,7 @@ export interface ProjectItem {
   slug: string;
   description: string;
   image?: string | null;
+  images?: string[];
   link?: string | null;
   github?: string | null;
   fullDescription?: string | null;
@@ -37,7 +38,12 @@ export const docifyProject: ProjectItem = {
   slug: "docify",
   description:
     "The modern, AI-powered collaborative document editor and knowledge workspace.",
-  image: "https://raw.githubusercontent.com/MYB320/Docify/main/public/og-image.png",
+  image: "/projects/docify/docify1.png",
+  images: [
+    "/projects/docify/docify1.png",
+    "/projects/docify/docify2.png",
+    "/projects/docify/docify3.png",
+  ],
   link: "https://docify-sand.vercel.app",
   github: "https://github.com/MYB320/Docify",
   fullDescription:

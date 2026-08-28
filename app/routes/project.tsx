@@ -6,6 +6,7 @@ import { projects } from "~/db/schema";
 import { defaultProjects, type ProjectItem } from "~/lib/projectsData";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
+import { ProjectImageCarousel } from "~/components/ProjectImageCarousel";
 import {
   ArrowLeft,
   ExternalLink,
@@ -20,6 +21,8 @@ import {
 
 export async function loader({ params }: Route.LoaderArgs) {
   const projectSlug = params.slug;
+
+  const fallback = defaultProjects.find((p) => p.slug === projectSlug);
 
   try {
     const dbProject = await db.query.projects.findFirst({
@@ -38,23 +41,44 @@ export async function loader({ params }: Route.LoaderArgs) {
         title: dbProject.title,
         slug: dbProject.slug,
         description: dbProject.description,
-        image: dbProject.image,
-        link: dbProject.link,
-        github: dbProject.github,
-        fullDescription: dbProject.fullDescription,
-        technologies: dbProject.techStack.map((t) => t.name),
-        features: dbProject.features,
-        techStack: dbProject.techStack,
-        challenges: dbProject.challenges,
-        outcomes: dbProject.outcomes,
+        image: dbProject.image || fallback?.image,
+        images:
+          fallback?.images && fallback.images.length > 0
+            ? fallback.images
+            : dbProject.image
+            ? [dbProject.image]
+            : [],
+        link: dbProject.link || fallback?.link,
+        github: dbProject.github || fallback?.github,
+        fullDescription:
+          dbProject.fullDescription || fallback?.fullDescription,
+        technologies:
+          dbProject.techStack.length > 0
+            ? dbProject.techStack.map((t) => t.name)
+            : fallback?.technologies || [],
+        features:
+          dbProject.features.length > 0
+            ? dbProject.features
+            : fallback?.features || [],
+        techStack:
+          dbProject.techStack.length > 0
+            ? dbProject.techStack
+            : fallback?.techStack || [],
+        challenges:
+          dbProject.challenges.length > 0
+            ? dbProject.challenges
+            : fallback?.challenges || [],
+        outcomes:
+          dbProject.outcomes.length > 0
+            ? dbProject.outcomes
+            : fallback?.outcomes || [],
       };
       return { project };
     }
   } catch (error) {
-    console.warn("Could not fetch project from DB, searching fallback list:", error);
+    console.warn("Could not fetch project from DB, using fallback list:", error);
   }
 
-  const fallback = defaultProjects.find((p) => p.slug === projectSlug);
   if (fallback) {
     return { project: fallback };
   }
@@ -77,6 +101,13 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function Project({ loaderData }: Route.ComponentProps) {
   const { project } = loaderData;
+
+  const displayImages =
+    project.images && project.images.length > 0
+      ? project.images
+      : project.image
+      ? [project.image]
+      : [];
 
   return (
     <section className="mx-auto container py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8 max-w-5xl">
@@ -136,19 +167,9 @@ export default function Project({ loaderData }: Route.ComponentProps) {
         </div>
       </div>
 
-      {/* Hero Image if available */}
-      {project.image && (
-        <div className="my-8 rounded-xl overflow-hidden border border-border/40 shadow-sm bg-muted aspect-video">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              // Hide broken image placeholder
-              e.currentTarget.style.display = "none";
-            }}
-          />
-        </div>
+      {/* Interactive Screenshots Carousel */}
+      {displayImages.length > 0 && (
+        <ProjectImageCarousel images={displayImages} title={project.title} />
       )}
 
       {/* Project Overview */}
