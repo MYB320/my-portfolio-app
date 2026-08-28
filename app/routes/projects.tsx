@@ -1,7 +1,7 @@
 import { ProjectCard } from "~/components/projectCard";
 import type { Route } from "./+types/projects";
 import { db } from "~/db";
-import { projects } from "~/db/schema";
+import { defaultProjects, type ProjectItem } from "~/lib/projectsData";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,10 +11,40 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({}: Route.LoaderArgs) {
-  const projectsPromise = await db.select().from(projects);
+  try {
+    const dbProjects = await db.query.projects.findMany({
+      with: {
+        techStack: true,
+        features: true,
+        challenges: true,
+        outcomes: true,
+      },
+    });
+
+    if (dbProjects && dbProjects.length > 0) {
+      const formatted: ProjectItem[] = dbProjects.map((p) => ({
+        id: p.id,
+        title: p.title,
+        slug: p.slug,
+        description: p.description,
+        image: p.image,
+        link: p.link,
+        github: p.github,
+        fullDescription: p.fullDescription,
+        technologies: p.techStack.map((t) => t.name),
+        features: p.features,
+        techStack: p.techStack,
+        challenges: p.challenges,
+        outcomes: p.outcomes,
+      }));
+      return { projects: formatted };
+    }
+  } catch (error) {
+    console.warn("Could not fetch projects from DB, using fallback projects:", error);
+  }
 
   return {
-    projects: projectsPromise,
+    projects: defaultProjects,
   };
 }
 
@@ -27,13 +57,13 @@ export default function Projects({ loaderData }: Route.ComponentProps) {
         <h2 className="text-2xl font-bold tracking-tight">Projects</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {projects.length > 0 ? (
+        {projects && projects.length > 0 ? (
           projects.map((project) => (
             <ProjectCard
-              key={project.id}
+              key={project.slug}
               title={project.title}
               tech={project.technologies}
-              imageSrc={project.thumbnailUrl}
+              imageSrc={project.image}
               slug={project.slug}
             />
           ))

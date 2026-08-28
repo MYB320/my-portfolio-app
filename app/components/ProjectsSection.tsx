@@ -2,11 +2,10 @@ import { Link, useLoaderData } from "react-router";
 import { Button } from "./ui/button";
 import { ArrowRightFromLineIcon } from "lucide-react";
 import { ProjectCard } from "./projectCard";
-
-import type { Project } from "~/db/schema";
+import type { ProjectItem } from "~/lib/projectsData";
 
 export function ProjectsSection() {
-  const { projects } = useLoaderData<{ projects: Project[] }>();
+  const { projects } = useLoaderData<{ projects: ProjectItem[] }>();
 
   return (
     <div className="bg-muted">
@@ -25,13 +24,13 @@ export function ProjectsSection() {
           </Button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {projects.length > 0 ? (
+          {projects && projects.length > 0 ? (
             projects.map((project) => (
               <ProjectCard
-                key={project.id}
+                key={project.slug}
                 title={project.title}
                 tech={project.technologies}
-                imageSrc={project.thumbnailUrl}
+                imageSrc={project.image}
                 slug={project.slug}
               />
             ))
