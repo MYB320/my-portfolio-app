@@ -30,7 +30,7 @@ export function ProjectsSection() {
                 key={project.slug}
                 title={project.title}
                 tech={project.technologies}
-                imageSrc={project.image}
+                imageSrc={project.images[0]}
                 slug={project.slug}
               />
             ))

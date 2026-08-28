@@ -7,7 +7,7 @@ export const docifyProjectData = {
     slug: "docify",
     description:
       "The modern, AI-powered collaborative document editor and knowledge workspace.",
-    image: "https://raw.githubusercontent.com/MYB320/Docify/main/public/og-image.png",
+    image: "/projects/docify/docify1.png",
     link: "https://docify-sand.vercel.app",
     github: "https://github.com/MYB320/Docify",
     fullDescription:

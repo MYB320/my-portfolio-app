@@ -22,21 +22,28 @@ export async function loader({}: Route.LoaderArgs) {
     });
 
     if (dbProjects && dbProjects.length > 0) {
-      const formatted: ProjectItem[] = dbProjects.map((p) => ({
-        id: p.id,
-        title: p.title,
-        slug: p.slug,
-        description: p.description,
-        image: p.image,
-        link: p.link,
-        github: p.github,
-        fullDescription: p.fullDescription,
-        technologies: p.techStack.map((t) => t.name),
-        features: p.features,
-        techStack: p.techStack,
-        challenges: p.challenges,
-        outcomes: p.outcomes,
-      }));
+      const formatted: ProjectItem[] = dbProjects.map((p) => {
+        const fallback = defaultProjects.find((d) => d.slug === p.slug);
+        return {
+          id: p.id,
+          title: p.title,
+          slug: p.slug,
+          description: p.description,
+          image: p.image || fallback?.image || null,
+          images: fallback?.images || (p.image ? [p.image] : []),
+          link: p.link || fallback?.link || null,
+          github: p.github || fallback?.github || null,
+          fullDescription: p.fullDescription || fallback?.fullDescription || null,
+          technologies:
+            p.techStack.length > 0
+              ? p.techStack.map((t) => t.name)
+              : fallback?.technologies || [],
+          features: p.features.length > 0 ? p.features : fallback?.features || [],
+          techStack: p.techStack.length > 0 ? p.techStack : fallback?.techStack || [],
+          challenges: p.challenges.length > 0 ? p.challenges : fallback?.challenges || [],
+          outcomes: p.outcomes.length > 0 ? p.outcomes : fallback?.outcomes || [],
+        };
+      });
       return { projects: formatted };
     }
   } catch (error) {
